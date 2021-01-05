@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -81,6 +82,9 @@ const StyledOption = styled.div`
 	margin-right: 10px;
 	color: white;
 	position: relative;
+	&:hover {
+		cursor: pointer
+	}
 	&:hover > ul {
 		display: block;
 	}
@@ -90,6 +94,17 @@ const StyledSearchOption = styled.select`
 	height: 34px;
 	width: 150px;
 `;
+
+const StyledOptionBasket = styled.div`
+	display: flex;
+	align-items: center;
+	color: white;
+`;
+
+const StyledBasketCount = styled(StyledOptionLineTwo)`
+	margin-left: 10px;
+	margin-right: 10px;
+`
 
 export class Header extends Component {
 
@@ -134,6 +149,14 @@ export class Header extends Component {
 							</li>
 						</StyleDropDown>
 					</StyledOption>
+					<StyledOption>
+						<StyledOptionLineOne>Returns</StyledOptionLineOne>
+						<StyledOptionLineTwo>& Orders</StyledOptionLineTwo>
+					</StyledOption>
+					<StyledOptionBasket>
+						<ShoppingBasketIcon />
+						<StyledBasketCount>0</StyledBasketCount>
+					</StyledOptionBasket>
 				</StyledHeaderNav>
 			</StyledHeader>
 		);
