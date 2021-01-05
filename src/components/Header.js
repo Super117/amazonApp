@@ -18,6 +18,24 @@ const StyledImg = styled.img`
   	margin-top: 18px;
 `;
 
+const StyledOption = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+`;
+
+const StyledOptionLineOne = styled.span`
+	font-size: 10px;
+`;
+
+const StyledOptionLineTwo = styled.span`
+	text-align: center;
+	font-size: 13px;
+	font-weight: 800;
+`;
+
 export class Header extends Component {
 
 	render() {
@@ -28,6 +46,10 @@ export class Header extends Component {
 						src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
 					/>
 				</a>
+				<StyledOption>
+					<StyledOptionLineOne>Contact to </StyledOptionLineOne>
+					<StyledOptionLineTwo>us</StyledOptionLineTwo>
+				</StyledOption>
 			</StyledHeader>
 		);
 	}
