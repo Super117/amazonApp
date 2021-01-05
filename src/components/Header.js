@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -75,6 +76,13 @@ const StyleDropDown = styled.ul`
 	display: none;
 `;
 
+const StyledLocation = styled.div`
+	display: flex;
+	align-items: flex-end;
+	color: white;
+	cursor: pointer;
+`;
+
 const StyledOption = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -116,10 +124,16 @@ export class Header extends Component {
 						src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
 					/>
 				</a>
-				<StyledOption>
-					<StyledOptionLineOne>Contact to </StyledOptionLineOne>
-					<StyledOptionLineTwo>us</StyledOptionLineTwo>
-				</StyledOption>
+				<StyledLocation>
+					<LocationOnIcon fontSize="small" />
+					<StyledOption>
+						<StyledOptionLineOne>Hello</StyledOptionLineOne>
+						<StyledOptionLineTwo>
+							Select your address
+						</StyledOptionLineTwo>
+
+					</StyledOption>
+				</StyledLocation>
 				<StyledHeaderSearch>
 					<StyledSearchOption>
 						<option value="StyledOption">All Departments</option>
