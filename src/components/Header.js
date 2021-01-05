@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import SearchIcon from "@material-ui/icons/Search";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -19,14 +20,6 @@ const StyledImg = styled.img`
   	margin-top: 18px;
 `;
 
-const StyledOption = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-left: 10px;
-	margin-right: 10px;
-	color: white;
-`;
-
 const StyledOptionLineOne = styled.span`
 	font-size: 10px;
 `;
@@ -35,6 +28,11 @@ const StyledOptionLineTwo = styled.span`
 	text-align: center;
 	font-size: 13px;
 	font-weight: 800;
+	display: flex;
+	align-items: center;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 const StyledHeaderSearch = styled.div`
@@ -57,11 +55,41 @@ const StyledSearchIcon = styled(SearchIcon)`
 	background-color: #cd9042;
 `;
 
+const StyledHeaderNav = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+`;
+
+const StyleDropDown = styled.ul`
+	top: 32px;
+    position: absolute;
+    color: black;
+    right: 30px;
+    width: 150px;
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
+    list-style-type: none;
+    text-align: center;
+	padding: 10px;
+	display: none;
+`;
+
+const StyledOption = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: white;
+	position: relative;
+	&:hover > ul {
+		display: block;
+	}
+`;
+
 const StyledSearchOption = styled.select`
 	height: 34px;
 	width: 150px;
 `;
-
 
 export class Header extends Component {
 
@@ -79,14 +107,34 @@ export class Header extends Component {
 				</StyledOption>
 				<StyledHeaderSearch>
 					<StyledSearchOption>
-						<option value="volvo">Volvo</option>
-						<option value="saab">Saab</option>
-						<option value="opel">Opel</option>
-						<option value="audi">Audi</option>
+						<option value="StyledOption">All Departments</option>
+						<option value="search-alias=todays-deals">Deals</option>
+						<option value="search-alias=audible">Audible Books & Originals</option>
+						<option value="search-alias=alexa-skills">Alexa Skills</option>
 					</StyledSearchOption>
 					<StyledSearchInput type="text" />
 					<StyledSearchIcon />
 				</StyledHeaderSearch>
+				<StyledHeaderNav>
+					<StyledOption>
+						<StyledOptionLineOne>Hello, sign in</StyledOptionLineOne>
+						<StyledOptionLineTwo>
+							Account & Lists
+							<ArrowDropDownIcon fontSize="small" />
+						</StyledOptionLineTwo>
+						<StyleDropDown>
+							<li className="nav__submenu-item ">
+								Your Account
+							</li>
+							<li className="nav__submenu-item ">
+								Orders
+							</li>
+							<li className="nav__submenu-item ">
+								Recommendations
+							</li>
+						</StyleDropDown>
+					</StyledOption>
+				</StyledHeaderNav>
 			</StyledHeader>
 		);
 	}
