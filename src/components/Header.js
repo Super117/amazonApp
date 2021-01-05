@@ -11,10 +11,7 @@ const StyledHeader = styled.div`
   	display: flex;
   	align-items: center;
   	background-color: #131921;
-  	position: sticky;
-  	top: 0;
-	z-index: 100;
-	  
+	z-index: 2;
 	@media (max-width: 768px) {
 		justify-content: space-between;
 	}
@@ -82,6 +79,7 @@ const StyleDropDown = styled.ul`
     list-style-type: none;
     text-align: center;
 	padding: 10px;
+	z-index:1;
 	display: none;
 `;
 
@@ -105,7 +103,6 @@ const StyledOption = styled.div`
 	&:hover {
 		cursor: pointer
 		border: 1px solid;
-		border-radius: 2px;
 		border-radius: 2px;
 		outline: 0;
 	}

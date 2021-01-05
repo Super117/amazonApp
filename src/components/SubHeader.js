@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import DehazeIcon from '@material-ui/icons/Dehaze';
+import SideBarMenu from './SideBarMenu.js';
 
 const StyledSubHeader = styled.div`
   	height: 40px;
@@ -28,19 +30,64 @@ const StyleSubLabel = styled.div`
             &:hover {
                 border: 1px solid;
                 border-radius: 2px;
-                border-radius: 2px;
                 outline: 0;
+                padding: 3px 7px 3px 5px;
             }
         }
     }
 `;
 
+const NavMenu = styled.div`
+    display: flex;
+    align-item: center;
+    cursor: pointer;
+    
+    span {
+        margin-left: 2px;
+    }
+`
+
 class SubHeader extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            menuStatus: "open"
+        }
+
+        this.handleClick = this.handleClick.bind(this);
+    };
+
+    handleClick() {
+        switch(this.state.menuStatus) {
+            case "open":
+                this.setState({
+                    menuStatus: "close"
+                });
+                break;
+            case "close":
+                this.setState({
+                    menuStatus: "open"
+                });
+                break;
+            default:
+                this.setState({
+                    menuStatus: "close"
+                });
+                break;
+        }
+    }
 
 	render() {
 		return (
 			<StyledSubHeader>
                 <StyleSubLabel>
+                    <NavMenu
+                        onClick={this.handleClick}
+                    >
+                        <DehazeIcon />
+                        <span>All</span>
+                    </NavMenu>
                     <div>
                         <a href="/">Best Sellers</a>
                     </div>
@@ -99,6 +146,10 @@ class SubHeader extends Component {
                         <a href="/">Amazon Home</a>
                     </div>
                 </StyleSubLabel>
+                <SideBarMenu 
+                    menuStatus={this.state.menuStatus}
+                    closeClick={this.handleClick}
+                />
             </StyledSubHeader>
 		);
 	}
