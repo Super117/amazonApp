@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import SearchIcon from "@material-ui/icons/Search";
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -36,6 +37,26 @@ const StyledOptionLineTwo = styled.span`
 	font-weight: 800;
 `;
 
+const StyledHeaderSearch = styled.div`
+	display: flex;
+	flex: 1;
+	align-items: center;
+	border-radius: 24px;
+`;
+
+const StyledSearchInput = styled.input`
+	height: 12px;
+	padding: 10px;
+	border: none;
+	width: 100%;
+`;
+
+const StyledSearchIcon = styled(SearchIcon)`
+	padding: 5px;
+	height: 22px !important;
+	background-color: #cd9042;
+`;
+
 export class Header extends Component {
 
 	render() {
@@ -50,6 +71,10 @@ export class Header extends Component {
 					<StyledOptionLineOne>Contact to </StyledOptionLineOne>
 					<StyledOptionLineTwo>us</StyledOptionLineTwo>
 				</StyledOption>
+				<StyledHeaderSearch>
+					<StyledSearchInput type="text" />
+					<StyledSearchIcon />
+				</StyledHeaderSearch>
 			</StyledHeader>
 		);
 	}
