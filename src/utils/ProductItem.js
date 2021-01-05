@@ -46,8 +46,8 @@ const StyledProductItemFooter = styled.div`
 `;
 
 const StyledProductTitle = styled.h2`
-    font-size: 21px!important;
-    line-height: 27.3px!important;
+    font-size: 21px;
+    line-height: 27.3px;
     max-height: 54.6px;
 `;
 

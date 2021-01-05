@@ -59,7 +59,7 @@ const StyledSearchInput = styled.input`
 
 const StyledSearchIcon = styled(SearchIcon)`
 	padding: 5px;
-	height: 22px !important;
+	height: 22px;
 	background-color: #cd9042;
 `;
 
