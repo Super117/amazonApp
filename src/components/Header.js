@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import SubHeader from './SubHeader.js';
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -12,7 +13,11 @@ const StyledHeader = styled.div`
   	background-color: #131921;
   	position: sticky;
   	top: 0;
-  	z-index: 100;
+	z-index: 100;
+	  
+	@media (max-width: 768px) {
+		justify-content: space-between;
+	}
 `;
 
 const StyledImg = styled.img`
@@ -42,6 +47,10 @@ const StyledHeaderSearch = styled.div`
 	flex: 1;
 	align-items: center;
 	border-radius: 24px;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const StyledSearchInput = styled.input`
@@ -81,6 +90,9 @@ const StyledLocation = styled.div`
 	align-items: flex-end;
 	color: white;
 	cursor: pointer;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 
 const StyledOption = styled.div`
@@ -92,9 +104,16 @@ const StyledOption = styled.div`
 	position: relative;
 	&:hover {
 		cursor: pointer
+		border: 1px solid;
+		border-radius: 2px;
+		border-radius: 2px;
+		outline: 0;
 	}
 	&:hover > ul {
 		display: block;
+	}
+	@media (max-width: 768px) {
+		display: none;
 	}
 `;
 
@@ -118,61 +137,64 @@ export class Header extends Component {
 
 	render() {
 		return (
-			<StyledHeader>
-				<a href="/">
-					<StyledImg 
-						src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-					/>
-				</a>
-				<StyledLocation>
-					<LocationOnIcon fontSize="small" />
-					<StyledOption>
-						<StyledOptionLineOne>Hello</StyledOptionLineOne>
-						<StyledOptionLineTwo>
-							Select your address
-						</StyledOptionLineTwo>
+			<div>
+				<StyledHeader>
+					<a href="/">
+						<StyledImg 
+							src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+						/>
+					</a>
+					<StyledLocation>
+						<LocationOnIcon fontSize="small" />
+						<StyledOption>
+							<StyledOptionLineOne>Hello</StyledOptionLineOne>
+							<StyledOptionLineTwo>
+								Select your address
+							</StyledOptionLineTwo>
 
-					</StyledOption>
-				</StyledLocation>
-				<StyledHeaderSearch>
-					<StyledSearchOption>
-						<option value="StyledOption">All Departments</option>
-						<option value="search-alias=todays-deals">Deals</option>
-						<option value="search-alias=audible">Audible Books & Originals</option>
-						<option value="search-alias=alexa-skills">Alexa Skills</option>
-					</StyledSearchOption>
-					<StyledSearchInput type="text" />
-					<StyledSearchIcon />
-				</StyledHeaderSearch>
-				<StyledHeaderNav>
-					<StyledOption>
-						<StyledOptionLineOne>Hello, sign in</StyledOptionLineOne>
-						<StyledOptionLineTwo>
-							Account & Lists
-							<ArrowDropDownIcon fontSize="small" />
-						</StyledOptionLineTwo>
-						<StyleDropDown>
-							<li className="nav__submenu-item ">
-								Your Account
-							</li>
-							<li className="nav__submenu-item ">
-								Orders
-							</li>
-							<li className="nav__submenu-item ">
-								Recommendations
-							</li>
-						</StyleDropDown>
-					</StyledOption>
-					<StyledOption>
-						<StyledOptionLineOne>Returns</StyledOptionLineOne>
-						<StyledOptionLineTwo>& Orders</StyledOptionLineTwo>
-					</StyledOption>
-					<StyledOptionBasket>
-						<ShoppingBasketIcon />
-						<StyledBasketCount>0</StyledBasketCount>
-					</StyledOptionBasket>
-				</StyledHeaderNav>
-			</StyledHeader>
+						</StyledOption>
+					</StyledLocation>
+					<StyledHeaderSearch>
+						<StyledSearchOption>
+							<option value="StyledOption">All Departments</option>
+							<option value="search-alias=todays-deals">Deals</option>
+							<option value="search-alias=audible">Audible Books & Originals</option>
+							<option value="search-alias=alexa-skills">Alexa Skills</option>
+						</StyledSearchOption>
+						<StyledSearchInput type="text" />
+						<StyledSearchIcon />
+					</StyledHeaderSearch>
+					<StyledHeaderNav>
+						<StyledOption>
+							<StyledOptionLineOne>Hello, sign in</StyledOptionLineOne>
+							<StyledOptionLineTwo>
+								Account & Lists
+								<ArrowDropDownIcon fontSize="small" />
+							</StyledOptionLineTwo>
+							<StyleDropDown>
+								<li className="nav__submenu-item ">
+									Your Account
+								</li>
+								<li className="nav__submenu-item ">
+									Orders
+								</li>
+								<li className="nav__submenu-item ">
+									Recommendations
+								</li>
+							</StyleDropDown>
+						</StyledOption>
+						<StyledOption>
+							<StyledOptionLineOne>Returns</StyledOptionLineOne>
+							<StyledOptionLineTwo>& Orders</StyledOptionLineTwo>
+						</StyledOption>
+						<StyledOptionBasket>
+							<ShoppingBasketIcon />
+							<StyledBasketCount>0</StyledBasketCount>
+						</StyledOptionBasket>
+					</StyledHeaderNav>
+				</StyledHeader>
+				<SubHeader />
+			</div>
 		);
 	}
 }
