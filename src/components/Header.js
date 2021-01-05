@@ -57,6 +57,12 @@ const StyledSearchIcon = styled(SearchIcon)`
 	background-color: #cd9042;
 `;
 
+const StyledSearchOption = styled.select`
+	height: 34px;
+	width: 150px;
+`;
+
+
 export class Header extends Component {
 
 	render() {
@@ -72,6 +78,12 @@ export class Header extends Component {
 					<StyledOptionLineTwo>us</StyledOptionLineTwo>
 				</StyledOption>
 				<StyledHeaderSearch>
+					<StyledSearchOption>
+						<option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="opel">Opel</option>
+						<option value="audi">Audi</option>
+					</StyledSearchOption>
 					<StyledSearchInput type="text" />
 					<StyledSearchIcon />
 				</StyledHeaderSearch>
