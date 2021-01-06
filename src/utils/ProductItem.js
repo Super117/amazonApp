@@ -20,13 +20,13 @@ const StyledProductItemContent = styled.div`
     margin-bottom: 0;
     margin-top: 0;
     overflow: hidden;
-    padding-top: 20px;
     z-index: -1;
 `;
 
 const StyledProductItemHeader = styled.div`
     padding: 0 20px;
     margin-bottom: 10px;
+    padding-top: 20px;
 `;
 
 const StyledProductItemBody = styled.div`

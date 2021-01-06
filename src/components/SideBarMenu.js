@@ -12,7 +12,7 @@ const StyledSideBar = styled.div`
     z-index: 100000;
     color: black;
     background-color: rgba(0,0,0, .8);
-    transform: translateX(0);
+    animation: fadeIn 0.5s;
 `;
 
 const StyledSideBarContent = styled.div`

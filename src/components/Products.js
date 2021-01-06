@@ -16,6 +16,7 @@ const StyledProductsContent = styled.div`
 const StyledRow = styled.div`
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 10px;
 `;
 
 class Products extends Component {

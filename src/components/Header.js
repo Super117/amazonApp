@@ -12,7 +12,6 @@ const StyledHeader = styled.div`
   	display: flex;
   	align-items: center;
   	background-color: #131921;
-	z-index: 2;
 	@media (max-width: 768px) {
 		justify-content: space-between;
 	}
@@ -69,18 +68,30 @@ const StyledHeaderNav = styled.div`
 	justify-content: space-evenly;
 `;
 
+const StyleDropDownWrap = styled.div`
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    color: black;
+    background-color: rgba(0,0,0,.8);
+	display: none;
+`;
+
 const StyleDropDown = styled.ul`
-	top: 32px;
+	top: -55px;
     position: absolute;
     color: black;
-    right: 30px;
+    right: 135px;
     width: 150px;
     background: white;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
     list-style-type: none;
     text-align: center;
 	padding: 10px;
-	z-index:1;
+	z-index:3;
 	display: none;
 `;
 
@@ -89,6 +100,20 @@ const StyledLocation = styled.div`
 	align-items: flex-end;
 	color: white;
 	cursor: pointer;
+	padding: 4px 8px 4px 6px;
+
+	&:hover {
+		cursor: pointer;
+		border: 1px solid;
+		border-radius: 2px;
+		outline: 0;
+		padding: 3px 7px 3px 5px;
+
+		div {
+			border: none;
+			padding: none;
+		}
+	}
 	@media (max-width: 768px) {
 		display: none;
 	}
@@ -101,14 +126,20 @@ const StyledOption = styled.div`
 	margin-right: 10px;
 	color: white;
 	position: relative;
+	padding: 4px 8px 4px 6px;
+
 	&:hover {
-		cursor: pointer
+		cursor: pointer;
 		border: 1px solid;
 		border-radius: 2px;
 		outline: 0;
+		padding: 3px 7px 3px 5px;
 	}
-	&:hover > ul {
-		display: block;
+	&:hover {
+		ul, div {
+			display: block;
+			animation: fadeIn 0.5s;
+		}
 	}
 	@media (max-width: 768px) {
 		display: none;
@@ -201,17 +232,19 @@ export class Header extends Component {
 								Account & Lists
 								<ArrowDropDownIcon fontSize="small" />
 							</StyledOptionLineTwo>
-							<StyleDropDown>
-								<li className="nav__submenu-item ">
-									Your Account
-								</li>
-								<li className="nav__submenu-item ">
-									Orders
-								</li>
-								<li className="nav__submenu-item ">
-									Recommendations
-								</li>
-							</StyleDropDown>
+							<StyleDropDownWrap>
+								<StyleDropDown>
+									<li>
+										Your Account
+									</li>
+									<li>
+										Orders
+									</li>
+									<li>
+										Recommendations
+									</li>
+								</StyleDropDown>
+							</StyleDropDownWrap>
 						</StyledOption>
 						<StyledOption>
 							<StyledOptionLineOne>Returns</StyledOptionLineOne>
