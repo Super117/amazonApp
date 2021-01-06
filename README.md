@@ -1,8 +1,10 @@
-![alt text]("Amazon")
+## Amazon Clone
 
 In the project directory, you can run:
 
-### `npm install`
+### `npx create-react-app amazonClone`
+
+cd amazonClone
 
 ### `npm start`
 
