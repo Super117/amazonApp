@@ -57,7 +57,7 @@ class SideBarMenu extends Component {
 	render() {
 		return (
             <div>
-                { this.props.menuStatus === "close" && 
+                { this.props.menuStatus === "open" && 
                     <StyledSideBar>
                         <StyledSideBarContent>
                             <StyledSideBarHeader>
@@ -73,7 +73,7 @@ class SideBarMenu extends Component {
                             </StyledSubMenuItem>
                         </StyledSideBarContent>
                         <StyledCloseIcon
-                            onClick={this.props.closeClick}
+                            onClick={this.props.handleClick}
                         />
                     </StyledSideBar>
                 }

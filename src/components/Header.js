@@ -5,6 +5,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import SubHeader from './SubHeader.js';
+import SideBarMenu from './SideBarMenu.js';
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -131,10 +132,42 @@ const StyledBasketCount = styled(StyledOptionLineTwo)`
 `
 
 export class Header extends Component {
+	constructor() {
+        super();
+        this.state = {
+            menuStatus: "close"
+        }
+
+        this.handleClick = this.handleClick.bind(this);
+	};
+	
+    handleClick() {
+        switch(this.state.menuStatus) {
+            case "open":
+                this.setState({
+                    menuStatus: "close"
+                });
+                break;
+            case "close":
+                this.setState({
+                    menuStatus: "open"
+                });
+                break;
+            default:
+                this.setState({
+                    menuStatus: "close"
+                });
+                break;
+        }
+	}
 
 	render() {
 		return (
 			<div>
+				<SideBarMenu 
+					menuStatus={this.state.menuStatus}
+					handleClick={this.handleClick}
+				/>
 				<StyledHeader>
 					<a href="/">
 						<StyledImg 
@@ -190,7 +223,9 @@ export class Header extends Component {
 						</StyledOptionBasket>
 					</StyledHeaderNav>
 				</StyledHeader>
-				<SubHeader />
+				<SubHeader 
+					handleClick={this.handleClick}
+				/>
 			</div>
 		);
 	}

@@ -10,6 +10,7 @@ const StyledProductItem = styled.div`
     padding-left: 10px;
     padding-right: 10px;
     min-width: 290px;
+    z-index: 1;
 `;
 
 const StyledProductItemContent = styled.div`
@@ -59,11 +60,6 @@ const StyledProductImgWrap = styled.div`
 `;
 
 const StyledProductImg = styled.img`
-    position: absolute;
-    top: -9999px;
-    right: -9999px;
-    bottom: -9999px;
-    left: -9999px;
     margin: auto;
     max-height: 100%;
     height: 100%;

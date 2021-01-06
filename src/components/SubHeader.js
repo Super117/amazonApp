@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import SideBarMenu from './SideBarMenu.js';
 
 const StyledSubHeader = styled.div`
   	height: 40px;
@@ -49,41 +48,12 @@ const NavMenu = styled.div`
 
 class SubHeader extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            menuStatus: "open"
-        }
-
-        this.handleClick = this.handleClick.bind(this);
-    };
-
-    handleClick() {
-        switch(this.state.menuStatus) {
-            case "open":
-                this.setState({
-                    menuStatus: "close"
-                });
-                break;
-            case "close":
-                this.setState({
-                    menuStatus: "open"
-                });
-                break;
-            default:
-                this.setState({
-                    menuStatus: "close"
-                });
-                break;
-        }
-    }
-
 	render() {
 		return (
 			<StyledSubHeader>
                 <StyleSubLabel>
                     <NavMenu
-                        onClick={this.handleClick}
+                        onClick={this.props.handleClick}
                     >
                         <DehazeIcon />
                         <span>All</span>
@@ -146,10 +116,6 @@ class SubHeader extends Component {
                         <a href="/">Amazon Home</a>
                     </div>
                 </StyleSubLabel>
-                <SideBarMenu 
-                    menuStatus={this.state.menuStatus}
-                    closeClick={this.handleClick}
-                />
             </StyledSubHeader>
 		);
 	}
