@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import FlyoutPrime from '../utils/FlyoutPrime';
 
 const StyledSubHeader = styled.div`
   	height: 40px;
@@ -22,9 +23,9 @@ const StyleSubLabel = styled.div`
     flex-flow: row wrap;
     overflow: hidden;
 
-    div {
+    & > div {
         padding: 9px 12px;
-        a {
+        & > a {
             color: white;
             text-decoration: none;
             padding: 4px 8px 4px 6px;
@@ -48,17 +49,21 @@ const NavMenu = styled.div`
     }
 `;
 
-
-const StyleDropDownWrap = styled.div`
-    position: fixed;
-    top: 100px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100000;
+const StyleDropDown = styled.div`
+    top: 35px;
+    left: 100px;
+    position: absolute;
     color: black;
-    background-color: rgba(0,0,0,.8);
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
+    list-style-type: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+	z-index:3;
     display: none;
+    width: 310px;
+    max-width: 100%;
 `;
     
 const StyledPrime = styled.a`
@@ -92,11 +97,9 @@ class SubHeader extends Component {
                         <StyledPrime href="/">
                             <span>Prime</span>
                             <ArrowDropDownIcon fontSize="small" />
-                            <StyleDropDownWrap>
-                                <div>
-                                    ss
-                                </div>
-                            </StyleDropDownWrap>
+                            <StyleDropDown>
+                                <FlyoutPrime />
+                            </StyleDropDown>
                         </StyledPrime>
                     </div>
                     <div>

@@ -6,6 +6,7 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import SubHeader from './SubHeader.js';
 import SideBarMenu from './SideBarMenu.js';
+import FlyoutContent from '../utils/FlyoutContent';
 
 const StyledHeader = styled.div`
   	height: 60px;
@@ -70,7 +71,7 @@ const StyledHeaderNav = styled.div`
 
 const StyleDropDownWrap = styled.div`
     position: fixed;
-    top: 100px;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -80,17 +81,16 @@ const StyleDropDownWrap = styled.div`
 	display: none;
 `;
 
-const StyleDropDown = styled.ul`
-	top: -55px;
+const StyleDropDown = styled.div`
+	top: 40px;
     position: absolute;
     color: black;
-    right: 135px;
-    width: 150px;
+    right: -135px;
     background: white;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
     list-style-type: none;
     text-align: center;
-	padding: 10px;
+	padding: 20px;
 	z-index:3;
 	display: none;
 `;
@@ -136,10 +136,16 @@ const StyledOption = styled.div`
 		padding: 3px 7px 3px 5px;
 	}
 	&:hover {
-		ul, div {
+		${StyleDropDownWrap} {
 			display: block;
 			animation: fadeIn 0.5s;
 		}
+		
+		${StyleDropDown} {
+			display: block;
+			animation: fadeIn 0.5s;
+		}
+
 	}
 	@media (max-width: 768px) {
 		display: none;
@@ -232,19 +238,9 @@ export class Header extends Component {
 								Account & Lists
 								<ArrowDropDownIcon fontSize="small" />
 							</StyledOptionLineTwo>
-							<StyleDropDownWrap>
 								<StyleDropDown>
-									<li>
-										Your Account
-									</li>
-									<li>
-										Orders
-									</li>
-									<li>
-										Recommendations
-									</li>
+									<FlyoutContent />
 								</StyleDropDown>
-							</StyleDropDownWrap>
 						</StyledOption>
 						<StyledOption>
 							<StyledOptionLineOne>Returns</StyledOptionLineOne>

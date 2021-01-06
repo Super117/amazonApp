@@ -77,6 +77,8 @@ class Header extends Component {
 			infinite: true,
 			speed: 500,
 			slidesToShow: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
 			slidesToScroll: 1
 		};
 		return (
@@ -84,7 +86,7 @@ class Header extends Component {
 				<StyledHome>
 					<StyledSlider {...settings}>
 						{this.state.items.map((imgItem) => (
-							<img src={imgItem.src} />
+							<img src={imgItem.src} alt={imgItem.alt} />
 						))}
 					</StyledSlider>
 				</StyledHome>
